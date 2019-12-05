@@ -1,7 +1,7 @@
 public class Doctor {
   static int id = 0;
-  String name;
-  String speciality;
+  private String name;
+  private String speciality;
 
   Doctor() {
     System.out.println("Construyendo el objeto doctor");

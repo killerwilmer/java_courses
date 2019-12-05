@@ -5,5 +5,7 @@ public class Main {
     // showMenu();
 
     Doctor myDoctor = new Doctor("Edwin", "Cardiología");
+
+    Patient myPatient = new Patient("Wilmer", "killerwilmer@gmail.com");
   }
 }
