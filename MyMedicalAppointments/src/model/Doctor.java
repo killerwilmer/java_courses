@@ -62,4 +62,10 @@ public class Doctor extends User {
       this.time = time;
     }
   }
+
+  @Override
+  public void showDataUser() {
+    System.out.println("Hospital");
+    System.out.println("Doctor");
+  }
 }

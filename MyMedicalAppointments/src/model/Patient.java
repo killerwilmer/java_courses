@@ -1,49 +1,55 @@
 package model;
 
 public class Patient extends User {
-    private String birthday;
-    private double weight;
-    private double height;
-    private String blood;
+  private String birthday;
+  private double weight;
+  private double height;
+  private String blood;
 
-    public Patient(String name, String email) {
-        super(name, email);
-    }
+  public Patient(String name, String email) {
+    super(name, email);
+  }
 
-    public String getBirthday() {
-        return birthday;
-    }
+  public String getBirthday() {
+    return birthday;
+  }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
+  public void setBirthday(String birthday) {
+    this.birthday = birthday;
+  }
 
-    public String getWeight() {
-        return weight + " Kg.";
-    }
+  public String getWeight() {
+    return weight + " Kg.";
+  }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
+  public void setWeight(double weight) {
+    this.weight = weight;
+  }
 
-    public String getHeight() {
-        return height + " Mts.";
-    }
+  public String getHeight() {
+    return height + " Mts.";
+  }
 
-    public void setHeight(double height) {
-        this.height = height;
-    }
+  public void setHeight(double height) {
+    this.height = height;
+  }
 
-    public String getBlood() {
-        return blood;
-    }
+  public String getBlood() {
+    return blood;
+  }
 
-    public void setBlood(String blood) {
-        this.blood = blood;
-    }
+  public void setBlood(String blood) {
+    this.blood = blood;
+  }
 
-    @Override
-    public String toString() {
-        return "Weight: " + getWeight() + " from patient";
-    }
+  @Override
+  public String toString() {
+    return "Weight: " + getWeight() + " from patient";
+  }
+
+  @Override
+  public void showDataUser() {
+    System.out.println("Enfermo");
+    System.out.println("Paciente");
+  }
 }
