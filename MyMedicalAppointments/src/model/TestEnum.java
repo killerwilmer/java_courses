@@ -1,3 +1,5 @@
+package model;
+
 public class TestEnum {
   public enum Day {
     SATURDAY("Sabado", "土曜日");
