@@ -53,16 +53,16 @@ public class Patient {
         this.birthday = birthday;
     }
 
-    public double getWeight() {
-        return weight;
+    public String getWeight() {
+        return weight + " Kg.";
     }
 
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public double getHeight() {
-        return height;
+    public String getHeight() {
+        return height + " Mts.";
     }
 
     public void setHeight(double height) {

@@ -7,5 +7,7 @@ public class Main {
     Doctor myDoctor = new Doctor("Edwin", "Cardiología");
 
     Patient myPatient = new Patient("Wilmer", "killerwilmer@gmail.com");
+    myPatient.setWeight(55.5);
+    System.out.println("Weight: " + myPatient.getWeight());
   }
 }
