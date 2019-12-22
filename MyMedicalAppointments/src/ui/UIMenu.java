@@ -23,6 +23,9 @@ public class UIMenu {
     "Diciembre"
   };
 
+  public static Doctor doctorLogged;
+  public static Patient patientLogged;
+
   public static void showMenu() {
     System.out.println("Welcome to My Appointments");
     System.out.println("Selecciona la opción deseada");
@@ -108,12 +111,14 @@ public class UIMenu {
         for (Doctor doctor : doctors) {
           if (doctor.getEmail().equals(email)) {
             emailCorrect = true;
+            doctorLogged = doctor;
           }
         }
       } else if (userType == 2) {
         for (Patient patient : patients) {
             if(patient.getEmail().equals(email)) {
               emailCorrect = true;
+              patientLogged = patient;
             }
         }
       }
