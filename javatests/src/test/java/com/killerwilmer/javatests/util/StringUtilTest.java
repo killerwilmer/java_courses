@@ -1,10 +1,14 @@
 package com.killerwilmer.javatests.util;
 
+import org.junit.Assert;
+import org.junit.Test;
+
 public class StringUtilTest {
 
-  public static void main(String[] args) {
+  @Test
+  public void testRepeat() {
 
-    String result = StringUtil.repeat("hola", 3);
-    System.out.println(result);
+    Assert.assertEquals("holaholahola", StringUtil.repeat("hola", 3));
+    Assert.assertEquals("hola", StringUtil.repeat("hola", 1));
   }
 }
