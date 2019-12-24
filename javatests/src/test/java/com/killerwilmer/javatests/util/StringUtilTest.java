@@ -28,4 +28,28 @@ public class StringUtilTest {
 
     StringUtil.repeat("hola", -1);
   }
+
+  @Test
+  public void test_string_is_not_empty() {
+
+    Assert.assertFalse(StringUtil.isEmpty("text"));
+  }
+
+  @Test
+  public void test_string_only_double_quotes_is_empty() {
+
+    Assert.assertTrue(StringUtil.isEmpty(""));
+  }
+
+  @Test
+  public void test_null_is_empty() {
+
+    Assert.assertTrue(StringUtil.isEmpty(null));
+  }
+
+  @Test
+  public void test_string_only_spaces_is_empty() {
+
+    Assert.assertTrue(StringUtil.isEmpty("     "));
+  }
 }
