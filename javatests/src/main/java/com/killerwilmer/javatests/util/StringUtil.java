@@ -18,12 +18,8 @@ public class StringUtil {
 
   public static boolean isEmpty(String str) {
 
-    if (str == null) return true;
-
-    if (str.trim().length() > 0) {
-      return false;
-    } else {
+    if (str == null) {
       return true;
-    }
+    } else return str.trim().length() <= 0;
   }
 }
