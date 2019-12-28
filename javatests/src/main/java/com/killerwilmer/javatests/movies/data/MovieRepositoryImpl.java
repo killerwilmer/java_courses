@@ -39,6 +39,15 @@ public class MovieRepositoryImpl implements MovieRepository {
         movie.getGenre().toString());
   }
 
+  @Override
+  public Collection<Movie> findByName(String name) {
+
+    name = name.toLowerCase();
+
+    return jdbcTemplate.query(
+        "select * from movies where LOWER(name) like '%" + name + "%'", movieMapper);
+  }
+
   private static RowMapper<Movie> movieMapper =
       (rs, rowNum) ->
           new Movie(

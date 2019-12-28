@@ -47,7 +47,9 @@ public class MovieRepositoryImplTest {
             Arrays.asList(
                 new Movie(1, "Dark Knight", 152, Genre.ACTION),
                 new Movie(2, "Memento", 113, Genre.THRILLER),
-                new Movie(3, "Matrix", 136, Genre.ACTION))));
+                new Movie(3, "Matrix 1", 136, Genre.ACTION),
+                new Movie(4, "Matrix 2", 138, Genre.ACTION),
+                new Movie(5, "Matrix 3", 132, Genre.ACTION))));
   }
 
   @Test
@@ -65,9 +67,23 @@ public class MovieRepositoryImplTest {
 
     movieRepository.saveOrUpdate(movie);
 
-    Movie movieFromDb = movieRepository.findById(4);
+    Movie movieFromDb = movieRepository.findById(6);
 
-    assertThat(movieFromDb, CoreMatchers.is(new Movie(4, "Super 8", 112, Genre.THRILLER)));
+    assertThat(movieFromDb, CoreMatchers.is(new Movie(6, "Super 8", 112, Genre.THRILLER)));
+  }
+
+  @Test
+  public void test_find_movies_by_name() {
+
+    Collection<Movie> movies = movieRepository.findByName("matr");
+
+    assertThat(
+        movies,
+        CoreMatchers.is(
+            Arrays.asList(
+                new Movie(3, "Matrix 1", 136, Genre.ACTION),
+                new Movie(4, "Matrix 2", 138, Genre.ACTION),
+                new Movie(5, "Matrix 3", 132, Genre.ACTION))));
   }
 
   @After

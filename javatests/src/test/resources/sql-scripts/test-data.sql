@@ -9,4 +9,6 @@ CREATE TABLE IF NOT EXISTS movies (
 insert into movies (name, minutes, genre) values
     ('Dark Knight', 152, 'ACTION'),
     ('Memento', 113, 'THRILLER'),
-    ('Matrix', 136, 'ACTION');
+    ('Matrix 1', 136, 'ACTION'),
+    ('Matrix 2', 138, 'ACTION'),
+    ('Matrix 3', 132, 'ACTION');
