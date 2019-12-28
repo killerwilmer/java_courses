@@ -29,4 +29,16 @@ public class MovieService {
         .filter(movie -> movie.getMinutes() <= length)
         .collect(Collectors.toList());
   }
+
+  public Collection<Movie> findMoviesByTemplate(Movie template) {
+
+    return movieRepository.findAll().stream()
+        .filter(
+            movie ->
+                movie.getName() == template.getName()
+                    || movie.getGenre() == template.getGenre()
+                    || movie.getMinutes() == template.getMinutes()
+                    || movie.getId() == template.getId())
+        .collect(Collectors.toList());
+  }
 }
