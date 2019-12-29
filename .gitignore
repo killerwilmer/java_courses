@@ -4,3 +4,5 @@
 MyMedicalAppointments/out/
 
 javatests/target/
+
+*.class
