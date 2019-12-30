@@ -35,5 +35,17 @@ public class MensajesService {
     MensajesDAO.borrarMensajeDB(id_mensaje);
   }
 
-  public static void editarMensaje() {}
+  public static void editarMensaje() {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Escribe tu nuevo mensaje");
+    String mensaje = sc.nextLine();
+
+    System.out.println("indica el id del mensaje a editar");
+    int id_mensaje = sc.nextInt();
+
+    Mensajes registro = new Mensajes();
+    registro.setMensaje(mensaje);
+    registro.setId_mensaje(id_mensaje);
+    MensajesDAO.actualizarMensajeDB(registro);
+  }
 }
