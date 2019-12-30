@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class MensajesService {
 
   public static void crearMensaje() {
+
     Scanner sc = new Scanner(System.in);
     System.out.println("Escribe tu mensaje");
     String mensaje = sc.nextLine();
@@ -21,7 +22,10 @@ public class MensajesService {
     MensajesDAO.crearMensajeDB(registro);
   }
 
-  public static void listarMensajes() {}
+  public static void listarMensajes() {
+
+    MensajesDAO.leerMensajesDB();
+  }
 
   public static void borrarMensaje() {}
 
