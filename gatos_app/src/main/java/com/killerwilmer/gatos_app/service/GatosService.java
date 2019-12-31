@@ -2,9 +2,8 @@ package com.killerwilmer.gatos_app.service;
 
 import com.google.gson.Gson;
 import com.killerwilmer.gatos_app.model.Gatos;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
+import com.squareup.okhttp.*;
+
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -97,5 +96,23 @@ public class GatosService {
     }
   }
 
-  public static void favoritoGato(Gatos gato) {}
+  public static void favoritoGato(Gatos gato) {
+    try {
+      OkHttpClient client = new OkHttpClient();
+      MediaType mediaType = MediaType.parse("application/json");
+      RequestBody body =
+          RequestBody.create(mediaType, "{\n\t\"image_id\":\"" + gato.getId() + "\"\n}");
+      Request request =
+          new Request.Builder()
+              .url("https://api.thecatapi.com/v1/favourites")
+              .post(body)
+              .addHeader("Content-Type", "application/json")
+              .addHeader("x-api-key", gato.getApikey())
+              .build();
+      Response response = client.newCall(request).execute();
+
+    } catch (IOException e) {
+      System.out.println(e);
+    }
+  }
 }
