@@ -1,13 +1,17 @@
 package com.killerwilmer.amazonviewer.model;
 
+import com.killerwilmer.amazonviewer.dao.MovieDAO;
+
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Movie extends Film implements IVisualizable {
+public class Movie extends Film implements IVisualizable, MovieDAO {
 
     private int id;
     private int timeViewed;
 
+    public Movie() {
+    }
 
     public Movie(String title, String genre, String creator, int duration, short year) {
         super(title, genre, creator, duration);
@@ -19,6 +23,9 @@ public class Movie extends Film implements IVisualizable {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getTimeViewed() {
         return timeViewed;
@@ -59,13 +66,10 @@ public class Movie extends Film implements IVisualizable {
     }
 
     public static ArrayList<Movie> makeMoviesList() {
-        ArrayList<Movie> movies = new ArrayList();
 
-        for (int i = 1; i <= 5; i++) {
-            movies.add(new Movie("Movie " + i, "Genero " + i, "Creador " + i, 120 + i, (short) (2017 + i)));
-        }
+        Movie movie = new Movie();
 
-        return movies;
+        return movie.read();
     }
 
     @Override
