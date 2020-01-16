@@ -84,9 +84,7 @@ public class Main {
             System.out.println(":: MOVIES ::");
             System.out.println();
 
-            for (int i = 0; i < movies.size(); i++) { //1. Movie 1
-                System.out.println(i + 1 + ". " + movies.get(i).getTitle() + " Visto: " + movies.get(i).isViewed());
-            }
+            movies.forEach(movie -> System.out.println(movie.getTitle() + " Visto: " + movie.isViewed()));
 
             System.out.println("0. Regresar al Menu");
             System.out.println();
