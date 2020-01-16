@@ -3,6 +3,7 @@ package com.killerwilmer.amazonviewer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import com.killerwilmer.amazonviewer.model.*;
 import com.anncode.makereport.Report;
@@ -84,7 +85,15 @@ public class Main {
             System.out.println(":: MOVIES ::");
             System.out.println();
 
-            movies.forEach(movie -> System.out.println(movie.getTitle() + " Visto: " + movie.isViewed()));
+            AtomicInteger atomicInteger = new AtomicInteger(1);
+              movies.forEach(
+                  movie ->
+                      System.out.println(
+                          atomicInteger.getAndIncrement()
+                              + ". "
+                              + movie.getTitle()
+                              + " Visto: "
+                              + movie.isViewed()));
 
             System.out.println("0. Regresar al Menu");
             System.out.println();
