@@ -246,7 +246,13 @@ public class Main {
         report.setNameFile("reporte");
         report.setExtension("txt");
         report.setTitle(":: VISTOS ::");
-        String contentReport = "";
+        final StringBuilder contentReport = new StringBuilder();
+
+        movies.stream()
+            .filter(movie -> movie.getIsViewed())
+            .forEach(movie -> contentReport.append(movie.toString() + "\n"));
+
+        /*
 
         for (Movie movie : movies) {
             if (movie.getIsViewed()) {
@@ -273,7 +279,9 @@ public class Main {
             }
         }
 
-        report.setContent(contentReport);
+         */
+
+        report.setContent(contentReport.toString());
         report.makeReport();
         System.out.println("Reporte Generado");
         System.out.println();
