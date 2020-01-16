@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 import com.killerwilmer.amazonviewer.model.*;
 import com.anncode.makereport.Report;
@@ -252,34 +254,20 @@ public class Main {
             .filter(movie -> movie.getIsViewed())
             .forEach(movie -> contentReport.append(movie.toString() + "\n"));
 
-        /*
+        // Predicate<Serie> seriePredicateViewed = serie -> serie.getIsViewed();
+        // Consumer<Serie> serieConsumerEach = serie -> contentReport.append(serie.toString() + "\n");
+        Consumer<Serie> serieConsumerEach =
+            serie -> {
+              ArrayList<Chapter> chapters = serie.getChapters();
+              chapters.stream()
+                  .filter(chapter -> chapter.getIsViewed())
+                  .forEach(chapter -> contentReport.append(chapter.toString() + "\n"));
+            };
+        series.stream().forEach(serieConsumerEach);
 
-        for (Movie movie : movies) {
-            if (movie.getIsViewed()) {
-                contentReport += movie.toString() + "\n";
-
-            }
-        }
-
-        for (Serie serie : series) {
-            ArrayList<Chapter> chapters = serie.getChapters();
-            for (Chapter chapter : chapters) {
-                if (chapter.getIsViewed()) {
-                    contentReport += chapter.toString() + "\n";
-
-                }
-            }
-        }
-
-
-        for (Book book : books) {
-            if (book.getIsReaded()) {
-                contentReport += book.toString() + "\n";
-
-            }
-        }
-
-         */
+        books.stream()
+                .filter(book -> book.getIsReaded())
+                .forEach(book -> contentReport.append(book.toString() + "\n"));
 
         report.setContent(contentReport.toString());
         report.makeReport();
