@@ -1,6 +1,8 @@
 package com.killerwilmer.dynamicweb.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,15 +27,27 @@ public class ServletLogin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String usuario = request.getParameter("usuario");
+		String empresa = request.getParameter("empresa");
+		PrintWriter writer = response.getWriter();
+		
+		if (usuario != null && empresa != null) {
+			if (empresa.equals("Tinpu")) {
+				writer.println("Bienvenido a Tinpu");
+			} else {
+				writer.println("Bienvenido...");
+			}
+		} else {
+			writer.println("Usuario Incorrecto!!");
+		}
+		writer.close();
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
