@@ -5,6 +5,8 @@ import com.killerwilmer.ereservation.model.Cliente;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /** @author killerwilmer */
 @Service
 @Transactional(readOnly = true)
@@ -33,5 +35,9 @@ public class ClienteService {
 
   public Cliente findByIdentificacion(String identificacionCli) {
     return this.clienteRepository.findByIdentificacion(identificacionCli);
+  }
+
+  public List<Cliente> findAll() {
+    return this.clienteRepository.findAll();
   }
 }
