@@ -10,6 +10,9 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "cliente")
+@NamedQuery(
+    name = "Cliente.findByIdentificacion",
+    query = "Select c from Cliente c where c.identificacionCli = ?1")
 public class Cliente {
 
   @Id

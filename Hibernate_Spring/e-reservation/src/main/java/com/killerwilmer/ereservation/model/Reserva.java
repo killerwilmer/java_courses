@@ -17,8 +17,12 @@ public class Reserva {
   @GenericGenerator(name = "system-uuid", strategy = "uuid2")
   private String idRes;
 
+  @Temporal(TemporalType.DATE)
   private Date fechaIngresoRes;
+
+  @Temporal(TemporalType.DATE)
   private Date fechaSalidaRes;
+
   private int cantidadPersonasRes;
   private String descripcionRes;
 
